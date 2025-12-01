@@ -1,0 +1,1 @@
+from loadsettings.main import ConfigManager
