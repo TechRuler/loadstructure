@@ -1,5 +1,5 @@
-from loadsettings.config_node import ConfigNode
-from loadsettings.utils.helper import _merge_dicts
+from loadstructure.config_node import ConfigNode
+from loadstructure.utils.helper import _merge_dicts
 import json
 import yaml
 import xmltodict
