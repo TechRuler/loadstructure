@@ -1,4 +1,4 @@
-# loadsettings
+# loadstructure
 
 A versatile Python library for loading and managing configuration files (JSON, YAML, XML, TOML, and INI/DEF-style) with **attribute-style access**, merging capabilities.
 
@@ -16,12 +16,12 @@ A versatile Python library for loading and managing configuration files (JSON, Y
 Using **uv**:
 
 ```bash
-uv add loadsettings
+uv add loadstructure
 ```
 
 Using **pip**
 ```bash
-pip install loadsettings
+pip install loadstructure
 ```
 ## 📦 Dependencies
 
@@ -68,7 +68,7 @@ Instantiate `ConfigManager` with the path to your config file and call `.load()`
 ```
 ### Load a configuration file
 ```python
-from loadsettings import ConfigManager
+from loadstructure import ConfigManager
 
 cfg = ConfigManager("app_config.json")
 cfg.load()
@@ -108,4 +108,4 @@ merged_cfg = ConfigManager.merge(["app_config.json", "app_config_override.json"]
 print(merged_cfg.app.features.analytics)
 ```
 ## License
-This project is licensed under the [MIT License](https://github.com/TechRuler/loadsettings/blob/main/LICENSE) for full details.
+This project is licensed under the [MIT License](https://github.com/TechRuler/loadstructure/blob/main/LICENSE) for full details.

@@ -16,4 +16,4 @@ dependencies = [
     "xmltodict>=1.0.2",
 ]
 [project.urls]
-Homepage = "https://github.com/TechRuler/loadsettings"
+Homepage = "https://github.com/TechRuler/loadstructure"
