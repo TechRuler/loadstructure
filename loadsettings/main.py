@@ -243,4 +243,28 @@ class ConfigManager:
         with open(path, "w", encoding="utf-8") as f:
             toml.dump(data, f)
 
+    def __repr__(self):
+        return self._config.__repr__()
+    
+    def to_dict(self):
+        return self._config.to_dict()
+    
+    def get(self, dotted_key, default=None):
+        """Access using dotted path: node.get('a.b.c')"""
+        return self._config.get(dotted_key, default)
+    
+    def items(self):
+        return self._config.items()
+    
+    def keys(self):
+        return self._config.keys()
+    
+    def values(self):
+        return self._config.values()
+    
+    def __iter__(self):
+        return self._config.__iter__()
+    
+    def __len__(self):
+        return self._config.__len__()
 

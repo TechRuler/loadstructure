@@ -63,6 +63,20 @@ class ConfigNode:
                 return default
         return node
     
+    def items(self):
+        return self._data.items()
+    
+    def keys(self):
+        return self._data.keys()
+    
+    def values(self):
+        return self._data.values()
+    
+    def __iter__(self):
+        return iter(self._data)
+    
+    def __len__(self):
+        return len(self._data)
     
     def __dir__(self):
         # include normal attributes + dynamic keys
