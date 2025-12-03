@@ -101,6 +101,8 @@ class ConfigManager:
         return self._config
     
     def select_filetype(self, ext: str):
+        if ext and not ext.startswith("."):
+            ext = "." + ext
         match ext.lower():
             case ".json": return self._load_json()
             case ".yaml" | ".yml": return self._load_yaml()
@@ -185,14 +187,13 @@ class ConfigManager:
         # Ensure ext starts with "."
         if ext and not ext.startswith("."):
             ext = "." + ext
+            
 
         # If path has no extension, append ext
         if os.path.splitext(path)[1] == "":
             path = path + ext
 
-        if filetype:
-            ext = filetype
-
+        
         if ext == ".json":
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4)
