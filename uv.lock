@@ -3,9 +3,9 @@ revision = 3
 requires-python = ">=3.13"
 
 [[package]]
-name = "loadsettings"
-version = "0.1.0"
-source = { virtual = "." }
+name = "loadstructure"
+version = "0.2.0"
+source = { editable = "." }
 dependencies = [
     { name = "pyyaml" },
     { name = "toml" },

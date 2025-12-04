@@ -6,8 +6,11 @@ A versatile Python library for loading and managing configuration files (JSON, Y
 
 * **Multiple Formats:** Load configurations from **JSON, YAML, XML, TOML, and INI/DEF** files.
 * **Attribute Access:** Access settings using dot notation (e.g., `config.server.port`).
-* **Merging:** Easily merge multiple configuration files, with later files overriding earlier settings.
-* **Saving:** Write your data in form of dictionary back to any supported file format.
+* **Auto-Creation:** Automatically creates nested keys if they do not exist.
+* **Schema Validation:** Enforce types and structure with optional schema support.
+* **Merging:** Merge multiple configuration files, with later files overriding earlier settings.
+* **Update & Replace:** Update partial configs with `.update()` or replace entire configs with `.replace()`.
+* **Saving:** Save your configuration back to the original or new file format.
 
 ---
 
@@ -70,8 +73,8 @@ Instantiate `ConfigManager` with the path to your config file and call `.load()`
 ```python
 from loadstructure import ConfigManager
 
-cfg = ConfigManager("app_config.json")
-cfg.load()
+config = ConfigManager("app_config.json")
+cfg = config.load()
 
 # Attribute-style access
 print(cfg.app.name)                       # App
@@ -88,6 +91,35 @@ theme = cfg.get("app.ui.theme")
 print(theme)  # light
 
 ```
+### Schema validation
+```python
+config = ConfigManager("config.json", schema={
+    "app": {"name": str, "version": str},
+    "modules": dict
+})
+cfg = config.load()
+
+cfg.app.name = "MyApp"  # valid
+cfg.app.version = 2      # raises SchemaError because type must be str
+```
+### Updating and replacing configurations
+```python
+# Update part of the config
+cfg.update({
+    "app": {
+        "version": "1.1.0"
+    }
+})
+
+# Replace entire config
+cfg.replace({
+    "app": {
+        "name": "NewApp",
+        "version": "2.0.0"
+    }
+})
+
+```
 ### Modifying and saving values
 ```python
 cfg.app.features.analytics = True
@@ -98,14 +130,14 @@ fg.app.tech = {
 }
 
 # Save changes back to JSON
-cfg.save()
+config.save()
 ```
-## Write 
 ### Merging multiple configuration files
 ```python
 # app_config_override.json can override some settings
 merged_cfg = ConfigManager.merge(["app_config.json", "app_config_override.json"])
 print(merged_cfg.app.features.analytics)
 ```
+
 ## License
 This project is licensed under the [MIT License](https://github.com/TechRuler/loadstructure/blob/main/LICENSE) for full details.
