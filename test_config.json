@@ -1,0 +1,14 @@
+{
+    "user": {
+        "name": "Anmolkumar",
+        "age": 22
+    },
+    "skills": [
+        "python",
+        "c++"
+    ],
+    "meta": {
+        "info": "Test metadata",
+        "version": 1.0
+    }
+}

@@ -14,10 +14,11 @@ import threading
 class ConfigManager:
     """Load JSON/YAML/XML/TOML configs and provide attribute-style access."""
 
-    def __init__(self, path: str, filetype: str = None):
-        self.path = path
+    def __init__(self, path: str, filetype: str = None, schema: dict | None = None):
+        self.path:str = path
         self.filetype:str = filetype
         self._config: ConfigNode | None = None
+        self._schema:dict = schema
     
     # ---------- loaders ----------
     def _load_json(self):
@@ -97,7 +98,7 @@ class ConfigManager:
                 raw = self.select_filetype(ext)
 
         # Wrap in ConfigNode
-        self._config = ConfigNode(raw)
+        self._config = ConfigNode(raw, self._schema)
         return self._config
     
     def select_filetype(self, ext: str):
@@ -110,6 +111,7 @@ class ConfigManager:
             case ".def": return self._load_def()
             case ".toml": return self._load_toml()
             case _: raise ValueError(f"Unsupported file type: {ext}")
+    # ---------------- reload -------------------------
     def reload(self):
         self.load()
         return self._config
