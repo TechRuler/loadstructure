@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<name>Anmol</name>
-	<age>21</age>
-	<skill>
-		<language>python</language>
-		<language>c++</language>
-		<experience>
-			<years>3</years>
-		</experience>
-	</skill>
-	<database>
-		<host>localhost</host>
-		<port>3306</port>
-		<enabled>true</enabled>
-	</database>
 	<theme>dark</theme>
 	<version>1.0</version>
-	<editor>
-		<font>
-			<size>14</size>
-			<family>Consolas</family>
-		</font>
-	</editor>
 </config>

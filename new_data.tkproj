@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<config>
-	<name>anmol</name>
-	<skill>
-		<language>python</language>
-		<language>c++</language>
-	</skill>
-</config>
