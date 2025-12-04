@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "loadstructure"
-version = "0.2.0"
+version = "0.2.1"
 description = "A versatile Python library for loading and managing configuration files (JSON, YAML, XML, TOML, and INI/DEF-style) with attribute-style access, merging capabilities."
 readme = "README.md"
 requires-python = ">=3.13"
