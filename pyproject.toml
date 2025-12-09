@@ -17,3 +17,6 @@ dependencies = [
 ]
 [project.urls]
 Homepage = "https://github.com/TechRuler/loadstructure"
+
+[project.scripts]
+loadstructure = "loadstructure.cli:main"
